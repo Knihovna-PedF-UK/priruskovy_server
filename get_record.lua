@@ -25,7 +25,7 @@ q
 ]]
 
 local function get_command(tmpname)
-  return string.format("yaz-client -m %s %s:%s/%s", tmpname, z39.server, z39.port, z39.database)
+  return string.format("yaz-client -v none -m %s %s:%s/%s", tmpname, z39.server, z39.port, z39.database)
 end
 
 local function get_script(query)
@@ -62,4 +62,7 @@ function M.query(query)
   return result
 end
 
+-- sample query:
+-- search for ISBN
+-- M.query("f @attr 1=7  80-7178-888-0")
 return M
